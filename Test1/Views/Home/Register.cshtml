@@ -1,0 +1,56 @@
+﻿@model Test1.Models.KhachHang
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            //@Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Register</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TenKH)
+                        @Html.TextBoxFor(m => m.TenKH, "", new { @class = "form-control", @placeholder = "Tên khách hàng" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SDT)
+                        @Html.TextBoxFor(m => m.SDT, "", new { @class = "form-control", @placeholder = "Số điện thoại" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DiaChi)
+                        @Html.TextBoxFor(m => m.DiaChi, "", new { @class = "form-control", @placeholder = "Địa chỉ" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PW)
+                        @Html.PasswordFor(m => m.PW, new { @class = "form-control", @placeholder = "Password" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.confirm_pw)
+                        @Html.PasswordFor(m => m.confirm_pw, new { @class = "form-control", @placeholder = "Confirm Password" })
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-danger" value="Register" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
